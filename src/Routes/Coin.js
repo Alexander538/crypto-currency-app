@@ -1,38 +1,29 @@
-import React from 'react';
-import { useSearchParams } from 'react-router-dom';
-
-const users = ['john', 'alice', 'alex', 'tim', 'bob'];
+import Axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 function Coin() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  let { id } = useParams();
+  // let { id } = useParams();
+  const [coin, setCoin] = useState(null);
+  // let id = (params.id)
 
-  const searchTerm = searchParams.get('name') || '';
+  useEffect(() => {
+      console.log(id);
+      Axios.get(`https://api.coinstats.app/public/v1/coins/${id}`).then(
+          (response) => {
+              console.log(response.data);
+              setCoin(response.data.coin);
+              console.log(coin)
+          }
+      );
+  }, []);
 
-  const handleSearch = event => {
-    const name = event.target.value;
-
-    if (name) {
-      setSearchParams({ name });
-    } else {
-      setSearchParams({});
-    }
-  };
-
-  return (
-    <>
-      <h1>Users</h1>
-      <input type='text' value={searchTerm} onChange={handleSearch} />
-      <ul>
-        {users
-          .filter((user) =>
-            user.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-          .map((user, i) => (
-            <li key={i}>{user}</li>
-          ))}
-      </ul>
-    </>
-  );
+  if (coin) {
+      return <div> yo {coin.name} </div>
+  } else {
+      return <div> data not found </div>
+  }
 }
 
 export default Coin;
