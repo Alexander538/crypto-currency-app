@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 function Coin() {
-  let { id } = useParams();
-  // let { id } = useParams();
+  const { id } = useParams();
   const [coin, setCoin] = useState(null);
-  // let id = (params.id)
 
   useEffect(() => {
       console.log(id);
@@ -22,7 +20,7 @@ function Coin() {
   if (coin) {
       return <div> yo {coin.name} </div>
   } else {
-      return <div> data not found </div>
+      return <div> loading... </div>
   }
 }
 
