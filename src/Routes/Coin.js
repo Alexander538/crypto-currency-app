@@ -20,12 +20,17 @@ function Coin() {
   if (coin) {
     return (
       <div className='coinView'>
-        <div className='coinCard'>
+        <div className='coinCardDetails'>
           {' '}
           <h1> Name: {coin.name} </h1>
           <img src={coin.icon} />
           <h3> Price: {coin.price}</h3>
           <h3> Symbol: {coin.symbol}</h3>
+          <h3> Volume: {coin.volume}</h3>
+          <h3> Available Supply: {coin.availableSupply}</h3>
+          <h3> Total Supply: {coin.totalSupply}</h3>
+          <h3> Rank: {coin.rank}</h3>
+
         </div>
       </div>
     );

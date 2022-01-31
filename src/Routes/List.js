@@ -1,7 +1,8 @@
 import Axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link as RouterLink, useSearchParams } from 'react-router-dom';
 import '../App.css';
+import { Button } from '@mui/material';
 
 function List() {
   const [coinList, setCoinList] = useState([]);
@@ -56,7 +57,8 @@ function List() {
             <img src={coin.icon} />
             <h3> Price: {coin.price}</h3>
             <h3> Symbol: {coin.symbol}</h3>
-            <Link to={`/coin/${coin.id}`}>view more</Link>
+            <Button variant='text' component={RouterLink} to={`/coin/${coin.id}`}>Details</Button>
+            {/* <RouterLink to={`/coin/${coin.id}`}>Details</RouterLink> */}
           </div>
         ))}
       </div>
