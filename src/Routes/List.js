@@ -55,7 +55,7 @@ function List() {
           <div className='coinCard'>
             <h1> Name: {coin.name} </h1>
             <img src={coin.icon} />
-            <h3> Price: {coin.price}</h3>
+            <h3> Price: $ {coin.price.toFixed(2)}</h3>
             <h3> Symbol: {coin.symbol}</h3>
             <Button variant='text' component={RouterLink} to={`/coin/${coin.id}`}>Details</Button>
             {/* <RouterLink to={`/coin/${coin.id}`}>Details</RouterLink> */}
