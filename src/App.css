@@ -3,7 +3,7 @@
   width: 100vw;
   font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(8, 6, 83);
-  color:greenyellow
+  color: greenyellow;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
   align-items: center;
 }
 
-.coinHeader input {
+.coinHeaderSearch {
   width: 50%;
   height: 50px;
   border: none;
@@ -43,34 +43,40 @@ body {
 
 .coinCard {
   width: 400px;
-  height: 300px;
-  background-color: rgb(36, 36, 36);
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 10px;
   margin: 25px;
   text-align: center;
 }
 
 .coinCardDetails {
   width: 400px;
-  height: 550px;
-  background-color: rgb(36, 36, 36);
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 10px;
-  margin: 20px;
+  /* margin: 20px; */
   text-align: center;
 }
 
 .coinCard img {
   height: 100px;
 }
+.coinCardDetails img {
+  height: 100px;
+}
+
 
 .redPrice {
-  color:red
+  color: red;
+  font-weight: bold;
 }
 
 .greenPrice {
-  color:greenyellow
+  color: rgb(17, 204, 17);
+}
+
+.box {
+  background-color: rgb(8, 6, 83);
+  height: 100vh;
+}
+
+.MuiCardMedia-media {
+  height: 100px;
+  padding-top: 56.25%;
+  margin-top: 30;
 }

@@ -1,8 +1,17 @@
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography
+} from '@mui/material';
+import TextField from '@mui/material/TextField';
 import Axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link as RouterLink, useSearchParams } from 'react-router-dom';
 import '../App.css';
-import { Button } from '@mui/material';
 
 function List() {
   const [coinList, setCoinList] = useState([]);
@@ -41,25 +50,61 @@ function List() {
   return (
     <div className='App'>
       <div className='coinHeader'>
-        <input
-          type='text'
-          placeholder='Search crypto...'
-          value={searchTerm}
+        <TextField
+          sx={{
+            width: '50%',
+            padding: 0,
+            margin: 0,
+            '& .MuiFilledInput-input': { backgroundColor: 'white' },
+          }}
+          id='outlined-basic'
+          label='Search Crypto...'
+          variant='filled'
           onChange={searchHandler}
+          value={searchTerm}
         />
-        <button onClick={reloadData}>REFRESH</button>
+        {/* <button onClick={reloadData}>REFRESH</button> */}
       </div>
       <div className='coinView'>
         {isLoading && <h1 className='loadingMsg'>Loading...</h1>}
         {filterCoins.map((coin, i) => (
-          <div className='coinCard'>
-            <h1> Name: {coin.name} </h1>
-            <img src={coin.icon} />
-            <h3> Price: $ {coin.price.toFixed(2)}</h3>
-            <h3> Symbol: {coin.symbol}</h3>
-            <Button variant='text' component={RouterLink} to={`/coin/${coin.id}`}>Details</Button>
-            {/* <RouterLink to={`/coin/${coin.id}`}>Details</RouterLink> */}
-          </div>
+          <Card className='coinCard'>
+            <CardActionArea component={RouterLink} to={`/coin/${coin.id}`}>
+              <CardContent>
+                <CardMedia>
+                  <img src={coin.icon} />
+                </CardMedia>
+                <Typography
+                  gutterBottom
+                  variant='h5'
+                  component='div'
+                  color='primary'
+                >
+                  {' '}
+                  {coin.name}
+                </Typography>
+                <Typography variant='h6' color='primary'>
+                  {' '}
+                  Price: $ {coin.price.toFixed(2)}
+                </Typography>
+                <Typography variant='h6' color='primary'>
+                  {' '}
+                  Symbol: {coin.symbol}
+                </Typography>
+                {coin.priceChange1h < 0 ? (
+                  <Typography variant='h6' className='redPrice'>
+                    <ArrowDownwardIcon />
+                    {coin.priceChange1h.toFixed(2)}
+                  </Typography>
+                ) : (
+                  <Typography variant='h6' className='greenPrice'>
+                    <ArrowUpwardIcon />
+                    {coin.priceChange1h.toFixed(2)}
+                  </Typography>
+                )}
+              </CardContent>
+            </CardActionArea>
+          </Card>
         ))}
       </div>
     </div>
