@@ -34,7 +34,6 @@ export default function Layout(props) {
                 <GitHubIcon />
               </IconButton>
             </Tooltip>
-            
           </Toolbar>
         </AppBar>
       </Box>

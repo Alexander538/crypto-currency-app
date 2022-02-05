@@ -68,7 +68,7 @@ function List() {
       <div className='coinView'>
         {isLoading && <h1 className='loadingMsg'>Loading...</h1>}
         {filterCoins.map((coin, i) => (
-          <Card className='coinCard'>
+          <Card className='coinCard' sx={{backgroundColor: 'rgb(88, 88, 89)'}}>
             <CardActionArea component={RouterLink} to={`/coin/${coin.id}`}>
               <CardContent>
                 <CardMedia>
@@ -78,16 +78,16 @@ function List() {
                   gutterBottom
                   variant='h5'
                   component='div'
-                  color='primary'
+                  color='white'
                 >
                   {' '}
                   {coin.name}
                 </Typography>
-                <Typography variant='h6' color='primary'>
+                <Typography variant='h6' color='white'>
                   {' '}
                   Price: $ {coin.price.toFixed(2)}
                 </Typography>
-                <Typography variant='h6' color='primary'>
+                <Typography variant='h6' color='white'>
                   {' '}
                   Symbol: {coin.symbol}
                 </Typography>
