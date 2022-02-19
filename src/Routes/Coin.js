@@ -30,7 +30,10 @@ function Coin() {
     return (
       <div className='box'>
         <div className='coinView'>
-          <Card className='coinCardDetails'>
+          <Card
+            className='coinCardDetails'
+            sx={{ background: 'rgba(57, 55, 121, 0.906)' }}
+          >
             <CardContent>
               <CardMedia>
                 <img src={coin.icon} />
@@ -39,37 +42,37 @@ function Coin() {
                 variant='h4'
                 gutterBottom
                 component='div'
-                color='primary'
+                color='white'
               >
                 {coin.name}
               </Typography>
 
-              <Typography variant='h6' color='primary'>
+              <Typography variant='h6' color='white'>
                 {' '}
                 Price: {coin.price.toFixed(2)}
               </Typography>
-              <Typography variant='h6' color='primary'>
+              <Typography variant='h6' color='white'>
                 {' '}
                 Symbol: {coin.symbol}
               </Typography>
-              <Typography variant='h6' color='primary'>
+              <Typography variant='h6' color='white'>
                 {' '}
                 Volume: {coin.volume}
               </Typography>
-              <Typography variant='h6' color='primary'>
+              <Typography variant='h6' color='white'>
                 {' '}
                 Available Supply: {coin.availableSupply}
               </Typography>
-              <Typography variant='h6' color='primary'>
+              <Typography variant='h6' color='white'>
                 {' '}
                 Total Supply: {coin.totalSupply}
               </Typography>
-              <Typography variant='h6' color='primary'>
+              <Typography variant='h6' color='white'>
                 {' '}
                 Popularity: {coin.rank}
               </Typography>
 
-              <Typography variant='h6' color='primary'>
+              <Typography variant='h6' color='white'>
                 Price Change In Last Hour:
               </Typography>
               {coin.priceChange1h < 0 ? (
@@ -84,8 +87,8 @@ function Coin() {
                 </Typography>
               )}
               <Button
-                sx={{ backgroundColor: 'primary', color: 'gold' }}
-                variant='contained'
+                sx={{ textDecoration: 'underline' }}
+                variant='text'
                 startIcon={<UndoIcon />}
                 component={RouterLink}
                 to={`/`}

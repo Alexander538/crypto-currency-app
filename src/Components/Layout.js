@@ -29,7 +29,7 @@ export default function Layout(props) {
                 aria-label='github'
                 sx={{ mr: 0 }}
                 target='_blank'
-                href='https://github.com/hugoguzman/fema-buyouts-orgtypes.git'
+                href='https://github.com/Alexander538/crypto-currency-app'
               >
                 <GitHubIcon />
               </IconButton>

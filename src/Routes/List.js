@@ -5,7 +5,7 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
-  Typography
+  Typography,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Axios from 'axios';
@@ -68,7 +68,10 @@ function List() {
       <div className='coinView'>
         {isLoading && <h1 className='loadingMsg'>Loading...</h1>}
         {filterCoins.map((coin, i) => (
-          <Card className='coinCard' sx={{backgroundColor: 'rgb(88, 88, 89)'}}>
+          <Card
+            className='coinCard'
+            sx={{ background: 'rgba(57, 55, 121, 0.906)' }}
+          >
             <CardActionArea component={RouterLink} to={`/coin/${coin.id}`}>
               <CardContent>
                 <CardMedia>
